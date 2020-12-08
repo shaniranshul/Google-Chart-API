@@ -1,0 +1,45 @@
+﻿<html>
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script type="text/javascript">
+google.charts.load("current", { packages: ["timeline"] });
+google.charts.setOnLoadCallback(drawChart);
+function drawChart() {
+
+            var container = document.getElementById('example5.1');
+            var chart = new google.visualization.Timeline(container);
+            var dataTable = new google.visualization.DataTable();
+            dataTable.addColumn({ type: 'string', id: 'Room' });
+            dataTable.addColumn({ type: 'string', id: 'Name' });
+            dataTable.addColumn({ type: 'date', id: 'Start' });
+            dataTable.addColumn({ type: 'date', id: 'End' });
+            dataTable.addRows([
+                ['Understanding the Business Flow', 'Understanding the Business Flow', new Date(2020, 11, 02, 12, 0, 0), new Date(2020, 11, 02, 13, 30, 0)],
+                ['Get Access to Teradata', 'Get Access to Teradata', new Date(2020, 11, 04, 14, 0, 0), new Date(2020, 11, 18, 15, 30, 0)],
+                ['Gather and Analyze Asset/ Account Data', 'Gather and Analyze Asset/ Account Data', new Date(2020, 11, 13, 16, 0, 0), new Date(2020, 11, 27, 17, 30, 0)],
+                ['Gather and Analyze SR/ Dispatch Data', 'Gather and Analyze SR/ Dispatch Data', new Date(2020, 11, 23, 12, 30, 0), new Date(2020, 12, 11, 14, 0, 0)],
+                ['Gather and Analyze Engineering Metrics', 'Gather and Analyze Engineering Metrics', new Date(2020, 12, 01, 14, 30, 0), new Date(2020, 12, 18, 16, 0, 0)],
+                ['Prepare Design Document', 'Prepare Design Document', new Date(2020, 12, 21, 12, 30, 0), new Date(2020, 12, 27, 14, 0, 0)],
+                ['Analyze and Determine Risk Score', 'Analyze and Determine Risk Score', new Date(2020, 12, 21, 14, 30, 0), new Date(2021, 01, 01, 16, 0, 0)],
+                ['Create ML Model', 'Create ML Model', new Date(2021, 01, 04, 14, 30, 0), new Date(2021, 01, 15, 16, 0, 0)],
+                ['Review Model with Sponsor and changes', 'Review Model with Sponsor and changes', new Date(2021, 01, 18, 14, 30, 0), new Date(2021, 01, 29, 16, 0, 0)],
+                ['Alert Reports to Sales', 'Alert Reports to Sales', new Date(2021, 02, 01, 12, 30, 0), new Date(2021, 02, 05, 14, 0, 0)],
+                ['Executive Dashboard', 'Executive Dashboard', new Date(2021, 02, 08, 14, 30, 0), new Date(2021, 02, 12, 16, 0, 0)],
+                ['Report Reviews and Changes', 'Report Reviews and Changes', new Date(2021, 02, 15, 16, 30, 0), new Date(2021, 02, 19, 18, 0, 0)]]);
+
+            var options = {
+                timeline: { colorByRowLabel: true }
+            };
+
+            chart.draw(dataTable, options);
+}
+
+    </script>
+    
+</head>
+<body>
+    <div id="example5.1" style="height: 1000px;"></div>
+    <div id="timeline" style="height: 180px;"></div>
+</body>
+</html>

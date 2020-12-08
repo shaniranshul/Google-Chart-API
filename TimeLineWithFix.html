@@ -1,0 +1,61 @@
+﻿<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script type="text/javascript">
+        google.charts.load('current', {
+            callback: function () {
+                var container = document.getElementById('chart_div');
+                var chart = new google.visualization.Timeline(container);
+                var dataTable = new google.visualization.DataTable();
+                dataTable.addColumn({ type: 'string', id: 'Room' });
+                dataTable.addColumn({ type: 'string', id: 'Name' });
+                //dataTable.addColumn({ type: 'string', id: 'style', role: 'style' });
+                dataTable.addColumn({ type: 'date', id: 'Start' });
+                dataTable.addColumn({ type: 'date', id: 'End' });
+                dataTable.addRows([
+                    ['Understanding the Business Flow', 'Completed',new Date(2020, 10, 02), new Date(2020, 10, 02)],
+                    ['Get Access to Teradata', 'Completed',new Date(2020, 10, 04), new Date(2020, 10, 18)],
+                    ['Gather and Analyze Asset/ Account Data', 'Completed', new Date(2020, 10, 13), new Date(2020, 10, 27)],
+                    ['Gather and Analyze SR/ Dispatch Data', 'In Progress', new Date(2020, 10, 23), new Date(2020, 11, 11)],
+                    ['Gather and Analyze Engineering Metrics', 'In Progress', new Date(2020, 11, 01), new Date(2020, 11, 18)],
+                    ['Prepare Design Document', 'Not started', new Date(2020, 11, 21), new Date(2020, 11, 27)],
+                    ['Analyze and Determine Risk Score', 'Not started', new Date(2020, 11, 21), new Date(2020, 12, 01)],
+                    ['Create ML Model', 'Not started', new Date(2020, 12, 04), new Date(2020, 12, 15)],
+                    ['Review Model with Sponsor and changes', 'Not started', new Date(2020, 12, 18), new Date(2020, 12, 29)],
+                    ['Alert Reports to Sales', 'Not started', new Date(2021, 01, 01), new Date(2021, 01, 05)],
+                    ['Executive Dashboard', 'Not started', new Date(2021, 01, 08), new Date(2021, 01, 12)],
+                    ['Report Reviews and Changes', 'Not started', new Date(2021, 01, 15), new Date(2021, 01, 19)]
+                ]);               
+                //function drawChart() {
+                //    chart.draw(dataTable, {
+                //        hAxis: {
+                //            minValue: new Date(2020, 10, 1),
+                //            maxValue: new Date(2021, 3, 1)
+                //        }
+                //    });
+                //}
+                function drawChart() {
+                    chart.draw(dataTable, {
+                        hAxis: {
+                            minValue: new Date(2020, 10, 1),
+                            maxValue: new Date(2021, 2, 1)
+                        },
+                        colors: ['#7CFC00', '#FFFC00', '#00FFFF'],//Green,Yellow,Aqua blue
+                    });
+                }
+
+                $(window).resize(drawChart);
+                drawChart();
+            },
+            packages: ['timeline']
+        });
+
+    </script>
+
+</head>
+<body>
+    <div id="chart_div"  style="height: 800px;"></div>
+</body>
+</html>
